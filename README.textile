@@ -1,8 +1,5 @@
 h1. Simple AS3 ToolTip
 
-*Signals* are light-weight, strongly-typed AS3 messaging tools.
-Wire your application with better APIs and less boilerplate than AS3 Events.
-
 h2. Setters
 
  * tipWidth : Number : Set the width of the tooltip
