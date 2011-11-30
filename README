@@ -1,0 +1,47 @@
+h1. Simple AS3 ToolTip
+
+*Signals* are light-weight, strongly-typed AS3 messaging tools.
+Wire your application with better APIs and less boilerplate than AS3 Events.
+
+h2. Setters
+
+ * tipWidth : Number : Set the width of the tooltip
+ * tipHeight : Number : Set the height of the tooltip
+ * titleFormat : TextFormat : Format for the title of the tooltip
+ * contentFormat : TextFormat : Format for the bodycopy of the tooltip
+ * stylesheet : StyleSheet : StyleSheet Object ( Added 08.27.09 )
+ * titleEmbed : Boolean : Tell the tooltip to use embedded fonts for the title
+ * contentEmbed : Boolean : Tell the tooltip to use embedded fonts for the content
+ * align : String : left, right, center
+ * delay : Number : Time in milliseconds to delay the display of the tooltip
+ * hook : Boolean : Displays a hook on the bottom of the tooltip
+ * hookSize : Number : Size of the hook
+ * cornerRadius : Number : Corner radius of the tooltip, same for all 4 sides
+ * colors : Array : Array of 2 color values ( [0xXXXXXX, 0xXXXXXX] );
+ * autoSize : Boolean : Will autosize the fields and size of the tip with no wrapping or multi-line capabilities, helpful with 1 word items like "Play" or "Pause"
+ * border  : Number : Color Value: 0xFFFFFF
+ * borderSize : Number : Size Of Border
+ * buffer: Number : TextField buffer inside ToolTip
+ * bgAlpha : Number : Transparency setting for ToolTip background
+
+h2. Example
+
+<pre><code>
+var tf:TextFormat = new TextFormat();
+tf.bold = true;
+tf.size = 12;
+tf.color = 0xff0000;
+ 
+var tt:ToolTip = new ToolTip();
+tt.hook = true;
+tt.hookSize = 20;
+tt.cornerRadius = 20;
+tt.align = "center";
+tt.titleFormat = tf;
+tt.show( DisplayObject, "Title Of This ToolTip", "Some Copy below the Title" );
+</code></pre>
+
+h2. Contact
+
+ * Email - duncan _at_ hy-brid.com.
+ * "More information":http://blog.hy-brid.com/flash/25/simple-as3-tooltip/
