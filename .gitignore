@@ -4,3 +4,11 @@ com/.DS_Store
 com/hybrid/.DS_Store
 
 .DS_Store
+
+src/com/greensock/**
+src/fl/**
+ToolTip.iml
+
+com/hybrid/.DS_Store
+
+com/.DS_Store
