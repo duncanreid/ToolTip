@@ -1,0 +1,1 @@
+﻿package com.hybrid.ui.strategies{	import flash.events.IEventDispatcher;	import flash.display.DisplayObject;	public interface IToolTipTweenStrategy extends IEventDispatcher	{		function animate(value:Boolean,target:DisplayObject):void;						function set onComplete(value:Function):void;		function get onComplete():Function;	}}
