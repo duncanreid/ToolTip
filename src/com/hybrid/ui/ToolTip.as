@@ -147,6 +147,7 @@ package com.hybrid.ui {
 		protected var _tweenStrategy:IToolTipTweenStrategy;
 		protected var _followMouse:Boolean = true;
 		protected var _speed:Number = 3;
+
 		
 
 	
@@ -161,6 +162,8 @@ package com.hybrid.ui {
 			
 			_tweenStrategy = tweenStrategy;
 			_tweenStrategy.onComplete = cleanUp;
+			
+			
 		}
 		
 		public function setContent( title:String, content:String = null ):void {
@@ -172,6 +175,7 @@ package com.hybrid.ui {
 		
 		public function show( p:DisplayObject, title:String, content:String=null):void {
 			//get the stage from the parent
+
 			this._stage = p.stage;
 			this._parentObject = p;
 			// added : DR : 04.29.2010
@@ -232,37 +236,24 @@ package com.hybrid.ui {
 		}
 		
 		protected function position():void {
-			var globalPoint:Point = _parentObject.localToGlobal(parentCoords);
+			var globalPoint:Point = _parentObject.localToGlobal(parentCoords);	
 			var xp:Number = globalPoint.x + this._offSet;
 			var yp:Number = globalPoint.y - defaultHeight - _offSetBottom;
-		
-		
-			/*switch(placement)
-			{
-				default:
-				case "top":
-					xp  = globalPoint.x + _offSet;
-					yp	= globalPoint.y - height - 10;
-					break;
-				
-				case "bottom":
-					xp  = globalPoint.x + _offSet;
-					yp	= globalPoint.y - height + getBounds(this).height + 10;
-					break;
-			}*/
-
 			var overhangRight:Number = this.defaultWidth + xp;
 			if( overhangRight > stage.stageWidth ) {
-				xp =  stage.stageWidth -  this.defaultWidth;
+				xp =  stage.stageWidth -  this.defaultWidth;	
 			}
+					
 			if( xp < 0 ) {
 				xp = 0;
 			}
 			if( (yp) < 0 ){
 				yp = 0;
 			}
+			
 			this.x += ( xp - this.x ) / speed;
 			this.y += ( yp - this.y ) / speed;
+					
 		}
 		
 		protected function get parentCoords():Point {
@@ -376,7 +367,7 @@ package com.hybrid.ui {
 				this.graphics.curveTo ( xp + w, yp, xp + w, yp + this._cornerRadius );
 				this.graphics.lineTo ( xp + w, yp + h - this._cornerRadius );
 				this.graphics.curveTo ( xp + w, yp + h, xp + w - this._cornerRadius, yp + h );
-				
+
 				//hook
 				this.graphics.lineTo ( xp + this._hookOffSet + this._hookSize, yp + h );
 				this.graphics.lineTo ( xp + this._hookOffSet , yp + h + this._hookSize );
@@ -698,7 +689,8 @@ package com.hybrid.ui {
 			}
 			this.graphics.clear();
 			removeChild( this._contentContainer );
-			parent.removeChild( this );
+			this._stage.removeChild(this);
+			//parent.removeChild( this );
 		}
 		
 		/* End Clean */
